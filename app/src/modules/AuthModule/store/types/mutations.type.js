@@ -1,0 +1,5 @@
+export const SET_SESSION = 'SET_SESSION'
+export const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN'
+export const SET_REFRESH_TOKEN = 'SET_REFRESH_TOKEN'
+export const SET_EXP_ACCESS_TIME = 'SET_EXP_ACCESS_TIME'
+export const SET_ROLES = 'SET_ROLES'

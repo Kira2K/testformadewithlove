@@ -1,0 +1,42 @@
+{
+	"ru": {
+		"exit": "Выход",
+		"customization": "Настройка оформления",
+		"about": "О программе",
+		"sounds": "Звуковые сигналы",
+		"dark": "Темная тема",
+		"light": "Светлая тема",
+		"medSystem": "Медицинская информационная система",
+		"releaseDate": "Дата релиза",
+		"techFile": "Технический файл",
+		"copyright": "Авторские права",
+		"info": "Конфигурации оборудования и программного обеспечения сервера и клиентских рабочих станций должно соответствовать требованиям производителя. Для получения дополнительных эксплуатационных сведений ознакомьтесь с руководством пользователя",
+		"phone": "тел.",
+		"fax": "факс",
+		"manual": "Руководство пользователя",
+		"demoActivated": "Активирован демо-режим. ",
+		"turnOff": "Отключить",
+		"manualIsNotAvailable": "Руководство пользователя недоступно",
+		"error": "Ошибка"
+	},
+	"en": {
+		"exit": "Exit",
+		"customization": "Customization",
+		"about": "About the program",
+		"sounds": "Sounds",
+		"dark": "Dark theme",
+		"light": "Light theme",
+		"medSystem": "Medical Information System",
+		"releaseDate": "Date of release",
+		"techFile": "Technical file",
+		"copyright": "Copyright",
+		"info": "The hardware and software configurations of the server and client must comply with the manufacturer's requirements. For additional operational information, read the user manual",
+		"phone": "phone",
+		"fax": "fax",
+		"manual": "User manual",
+		"demoActivated": "Demo mode activated. ",
+		"turnOff": "Turn off",
+		"manualIsNotAvailable": "User manual not available",
+		"error": "Error"
+	}
+}

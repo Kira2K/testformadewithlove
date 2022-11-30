@@ -1,0 +1,40 @@
+.main-page {
+  &-wrapper {
+    max-height: calc(100vh - 145px);
+    overflow-y: auto;
+  }
+  &__title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    margin: $padding-md 0;
+  }
+  &__cards {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &-slot {
+      width: 315px;
+      min-height: 110px;
+      box-sizing: border-box;
+      padding-bottom: $padding-md;
+      margin: 0 $padding-md  $padding-md 0;
+
+      &-menu-item {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        margin-bottom: $padding-md;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.light {
+  --theme: ‘light’;
+
+  --background: #E8ECED url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAASCAYAAACNdSR1AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADKSURBVHgBzZHREYIwDIYLB28cBxvgBo4gE+gGuoE4iWwgGzgCIzgCbpBrG3gBWtN6ehyCp2/8L23SP2nuC2MjyaY5csSbQNyP39zXBaTcGFOv1E5pfaIzpbgSdb19uwEgoS6leTAFw04gxMEWIF6Mj3EpARAz9kXAeUbmiFGlZj/KZX9oQeY7sbxaNBOi/NqgtTRsYszzaYooPg/R2jHiMCxU26a91tz1/ZIMuet5lYlV163iIMjZzLeJYT831ofmFrXopThOMZV+AN08m93DDDz+AAAAAElFTkSuQmCC);
+
+  --text-main: #61737D;
+  --text-title: #365B71;
+  --text-secondary: #8D999F;
+  --text-disable: #BFBFBF;
+
+  --surface-main: #FEFEFE;
+  --surface-in-press: #F5F8FA;
+  --surface-head-hover: #EDF5FA;
+  --surface-disable: #F5F5F5;
+  --surface-popover: #FFFFFF;
+  --surface-accent: #50A6D9;
+
+  --border-1: #E6E6E6;
+  --border-2: #B8D1DE;
+
+  --neon-main: #1890FF;
+  --neon-hover: #56ACFB;
+
+  --indication-red: #EB5757;
+  --indication-red-light: #FFA39E;
+  --indication-red-dark: #261817;
+  --indication-yellow: #FADB14;
+  --indication-yellow-light: #FFFB8F;
+  --indication-yellow-dark: #AD8B00;
+  --indication-gold: #F2994A;
+  --indication-gold-light: #FFE58F;
+  --indication-gold-dark: #AD6800;
+  --indication-green: #79E048;
+  --indication-green-light: #B7EB8F;
+  --indication-green-dark: #172621;
+
+  --daybreak-3: #91D5FF;
+
+  --dust-red-1: #FFF1F0;
+  --dust-red-6: #F5222D;
+
+  --polar-green-8: #237804;
+
+  --calendula-gold-1: #FFFBE6;
+  --calendula-gold-6: #FAAD14;
+
+  --geekblue-1: #F0F5FF;
+  --geekblue-3: #ADC6FF;
+  --geekblue-6: #2F54EB;
+  --volcano-1: #FFF2E8;
+  --volcano-3: #FFBB96;
+  --volcano-6: #FA541C;
+  --orange-1: #FFF7E6;
+  --orange-3: #FFD591;
+  --orange-6: #FA8C16;
+  --lime-1: #FCFFE6;
+  --lime-3: #EAFF8F;
+  --lime-6: #A0D911;
+  --cyan-1: #E6FFFB;
+  --cyan-3: #87E8DE;
+  --cyan-6: #13C2C2;
+  --magenta-1: #FFF0F6;
+  --magenta-3: #FFADD2;
+  --magenta-6: #EB2F96;
+  --purple-1: #F9F0FF;
+  --purple-3: #D3ADF7;
+  --purple-6: #722ED1;
+
+  --menu-color: #213345;
+  --menu-color-2: #2A445E;
+  --menu-color-3: #1F2A38;
+  --menu-color-4: #80C5ED;
+  --menu-color-5: #435E75;
+  --menu-color-6: #C9EBFF;
+  --menu-color-7: #73D0F5;
+  --menu-color-8: #718EAB;
+
+  --clock-shadow: var(--text-secondary);
+
+  --keyboard-button-color: var(--surface-accent);
+  --keyboard-button-color-hover: var(--surface-head-hover);
+  --keyboard-button-color-active: var(--neon-main);
+  --keyboard-button-color-disable: var(--text-disable);
+  --keyboard-button-text-color: var(--surface-main);
+  --keyboard-button-text-color-hover: var(--surface-accent);
+  --keyboard-button-text-color-disable: var(--text-secondary);
+  --keyboard-button-border-color: var(--surface-accent);
+
+  --button-solid-bg-color: var(--surface-accent);
+  --button-solid-text-color: var(--surface-main);
+
+  --input-border-color: var(--border-2);
+
+}

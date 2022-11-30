@@ -1,0 +1,587 @@
+// -------- Colors -----------
+$white: #fff;
+$black: #000;
+
+$dark-15: adjust-color($black, $alpha: -0.85);
+$dark-25: adjust-color($black, $alpha: -0.75);
+$dark-30: adjust-color($black, $alpha: -0.70);
+$dark-50: adjust-color($black, $alpha: -0.50);
+$dark-80: adjust-color($black, $alpha: -0.20);
+
+// paddings
+$padding-xlg: 32px;
+$padding-lg: 24px;
+$padding-md: 16px;
+$padding-sm: 12px;
+$padding-xs: 8px;
+$padding-xxs: 4px;
+
+// border-radius
+$border-radius-base: 5px;
+$border-radius-xl: 4px;
+$border-radius-md: 3px;
+$border-radius-sm: 2px;
+
+$z-index--11: 11;
+$z-index--12: 12;
+$z-index--9999: 9999;
+$z-index--99999: 9999;
+
+$mx-primary-font-family: roboto, sans-serif;
+$mx-secondary-font-family: gruppo;
+
+$mx-font-weight--thin: 100;
+$mx-font-weight--light: 300;
+$mx-font-weight--regular: 400;
+$mx-font-weight--medium: 500;
+$mx-font-weight--bold: 700;
+$mx-font-weight--black: 900;
+
+$mx-font-size--small: 12px;
+$mx-font-size--base: 14px;
+$mx-font-size--default: 16px;
+$mx-font-size--large: 20px;
+
+$mx-primary-text-color: var(--text-main);
+$mx-secondary-text-color: var(--text-secondary);
+$mx-tertiary-text-color: var(--text-title);
+
+$mx-primary-background-color: var(--background);
+$mx-main-background-color: var(--surface-in-press);
+$mx-secondary-background-color: var(--surface-main);
+
+$mx-transition-duration: 0.1s;
+$mx-transition-type--linear: linear;
+$mx-transition-type--ease: ease;
+$mx-transition-type--ease-out: ease-out;
+$mx-transition-type--ease-in-out: ease-in-out;
+
+$mx-border-primary-color: var(--border-1);
+$mx-border-secondary-color: var(--border-2);
+
+$mx-scroll-bar-width: 6px;
+$mx-scroll-bar-height: 6px;
+$mx-scroll-bar-thumb-border-radius: 3px;
+$mx-scroll-bar-background-color: var(--surface-main);
+
+$mx-home-view-empty-card-border-color: var(--border-2);
+$mx-home-view-empty-card-font-color: var(--text-secondary);
+
+//MxClock
+// ---
+$mx-clock-main-background: var(--surface-main);
+$mx-clock-main-border: var(--clock-shadow);
+$mx-clock-bullet-background-color: var(--neon-main);
+$mx-clock-bullet-border-color: var(--surface-head-hover);
+$mx-clock-time-text-color: var(--text-title);
+$mx-clock-bullet-text-shadow: $dark-25;
+$mx-clock-seconds-color: var(--text-disable);
+$mx-clock-minute-color: var(--text-secondary);
+$mx-clock-hour-color: var(--neon-main);
+// ---
+
+//MxDivider
+// ---
+$mx-divider-border-first: var(--surface-in-press);
+$mx-divider-border-second: var(--border-1);
+// ---
+
+//MxTag
+// ---
+$mx-tag-text-default-color: var(--text-main);
+$mx-tag-default-bg-color: var(--surface-main);
+$mx-tag-default-br-color: var(--border-2);
+$mx-tag-icon-hover-color: var(--text-title);
+$mx-tag-checkable-hover-color: var(--neon-hover);
+$mx-tag-disabled-color: var(--text-disable);
+$mx-tag-disabled-bg-color: var(--surface-disable);
+$mx-tag-color-geekblue-1: var(--geekblue-1);
+$mx-tag-color-geekblue-3: var(--geekblue-3);
+$mx-tag-color-geekblue-6: var(--geekblue-6);
+$mx-tag-color-surface: var(--surface-head-hover);
+$mx-tag-color-daybreak: var(--daybreak-3);
+$mx-tag-color-neon: var(--neon-main);
+$mx-tag-color-red-1: var(--dust-red-1);
+$mx-tag-color-red-3: var(--indication-red-light);
+$mx-tag-color-red-6: var(--dust-red-6);
+$mx-tag-color-volcano-1: var(--volcano-1);
+$mx-tag-color-volcano-3: var(--volcano-3);
+$mx-tag-color-volcano-6: var(--volcano-6);
+$mx-tag-color-orange-1: var(--orange-1);
+$mx-tag-color-orange-3: var(--orange-3);
+$mx-tag-color-orange-6: var(--orange-6);
+$mx-tag-color-gold-1: var(--calendula-gold-1);
+$mx-tag-color-gold-3: var(--indication-gold-light);
+$mx-tag-color-gold-6: var(--calendula-gold-6);
+$mx-tag-color-lime-1: var(--lime-1);
+$mx-tag-color-lime-3: var(--lime-3);
+$mx-tag-color-lime-6: var(--lime-6);
+$mx-tag-color-green-8: var(--polar-green-8);
+$mx-tag-color-cyan-1: var(--cyan-1);
+$mx-tag-color-cyan-3: var(--cyan-3);
+$mx-tag-color-cyan-6: var(--cyan-6);
+$mx-tag-color-magenta-1: var(--magenta-1);
+$mx-tag-color-magenta-3: var(--magenta-3);
+$mx-tag-color-magenta-6: var(--magenta-6);
+$mx-tag-color-purple-1: var(--purple-1);
+$mx-tag-color-purple-3: var(--purple-3);
+$mx-tag-color-purple-6: var(--purple-6);
+// ---
+
+// MxCheckbox
+// ---
+$checkbox-size: 16px;
+$checkbox-color: var(--neon-main);
+$checkbox-check-color: var(--surface-main);
+$checkbox-border-width: 1px;
+$checkbox-border-color: var(--border-2);
+$checkbox-label-color: var(--text-main);
+$checkbox-check-bg: var(--neon-main);
+$checkbox-disabled-bg: var(--surface-disable);
+$checkbox-disabled-border-color: var(--text-disable);
+$checkbox-disabled-label-color: var(--text-disable);
+// ---
+
+// MxRadio
+// ---
+$radio-size: 14px;
+$radio-border-width: 1px;
+$radio-border-color: var(--border-2);
+$radio-bg: var(--surface-main);
+$radio-label-color: var(--text-main);
+$radio-check-color: var(--neon-main);
+$radio-disabled-bg: var(--surface-disable);
+$radio-disabled-color: var(--text-disable);
+$radio-disabled-label-color: var(--text-disable);
+// ---
+
+// MxBadge
+// ---
+$badge-height: 20px;
+$badge-dot-size: 6px;
+$badge-font-size: $mx-font-size--small;
+$badge-font-weight: normal;
+$badge-status-size: 6px;
+$badge-text-color: var(--text-main);;
+$badge-default-color: var(--surface-head-hover);
+$badge-secondary-color: var(--text-secondary);
+$badge-red-color: var(--indication-red);
+$badge-yellow-color: var(--indication-yellow);
+$badge-green-color: var(--indication-green);
+$badge-gold-color: var(--indication-gold);
+$badge-neon-color: var(--neon-main);
+$badge-text-border-color: var(--border-1);
+$badge-text-main-color: var(--text-main);
+$badge-text-grey-color: var(--surface-head-hover);
+// ---
+
+// MxAvatar
+// ---
+$avatar-size-x-small: 32px;
+$avatar-size-small: 38px;
+$avatar-size-medium: 40px;
+$avatar-size-large: 52px;
+$avatar-size-x-large-width: 100px;
+$avatar-size-x-large-height: 120px;
+$avatar-mx-border-radius: 4px;
+$avatar-bg-color: var(--text-disable);
+$avatar-icon-color: var(--surface-main);
+// ---
+
+//MxSwitch
+// ---
+$mx-switch-slider: var(--surface-main);
+$mx-switch-bg-color: var(--text-disable);
+$mx-switch-bg-color-checked: var(--neon-main);
+$mx-switch-label: var(--text-main);
+// ---
+
+// MxPopover
+// ---
+$mx-popover-arrow-size: 12px;
+$mx-popover-arrow-half: 6px;
+$mx-popover-popper-background-color: var(--surface-popover);
+$mx-popover-arrow-color: var(--surface-popover);
+$mx-popover-title-color: var(--text-title);
+$mx-popover-title-font-weight: $mx-font-weight--medium;
+// ---
+
+// MxTooltip
+// ---
+$mx-tooltip-arrow-size: 12px;
+$mx-tooltip-arrow-half: 6px;
+$mx-tooltip-color: var(--text-main);
+$mx-tooltip-popper-background-color: var(--surface-disable);
+$mx-tooltip-arrow-color: var(--surface-disable);
+// ---
+
+//MxTexarea
+// ---
+$mx-textarea-background-color: var(--surface-in-press);
+$mx-textarea-scrollbar-background-color: var(--surface-in-press);
+$mx-textarea-border-radius: $border-radius-md;
+$mx-textarea-border-color: var(--border-2);
+$mx-textarea-shadow-color: var(--border-2);
+$mx-textarea-padding-vertical: $padding-xs;
+$mx-textarea-padding-horizontal: $padding-sm;
+$mx-textarea-text-color: var(--text-main);
+$mx-textarea-placeholder-color: var(--text-secondary);
+$mx-textarea-hover-color: var(--neon-hover);
+$mx-textarea-font-size: $mx-font-size--small;
+$mx-textarea-disabled-background-color: var(--surface-disable);
+$mx-textarea-disabled-text-color: var(--text-secondary);
+$mx-textarea-line-height: initial;
+$mx-textarea-scrollbar-width: 6px;
+$mx-textarea-scrollbar-height: 10px;
+$mx-textarea-scrollbar-thumb-border-radius: 6px;
+$mx-textarea-horz-scrollbar-thumb-border-radius: 5px;
+$mx-textarea-dragger-background: var(--border-2);
+// ---
+
+// MxIcon
+// ---
+$mx-icon-min-size: 8px;
+$mx-icon-max-size: 128px;
+// ---
+
+// ---
+// MxLogo
+// ---
+$mx-logo-color: var(--text-secondary);
+// ---
+
+// MxTable
+// ---
+$mx-table-background: var(--surface-in-press);
+$mx-table-background-hover: var(--border-1);
+$mx-table-color: var(--text-title);
+$mx-table-background-counter: var(--surface-main);
+$mx-table-background-row: var(--surface-main);
+$mx-table-color-row: var(--text-main);
+// ---
+
+//MxInput
+// ---
+$mx-input-border-color: var(--input-border-color);
+$mx-input-bg-color: var(--surface-in-press);
+$mx-input-disabled-bg-color: var(--surface-disable);
+$mx-input-disabled-color: var(--text-secondary);
+$mx-input-color: var(--text-main);
+$mx-input-disabled-border-color: var(--surface-disable);
+$mx-input-success-border-color: var(--neon-hover);
+$mx-input-success-shadow-color: var(--neon-hover);
+$mx-input-error-border-color: var(--indication-red);
+$mx-input-error-shadow-color: var(--indication-red);
+$mx-input-warning-border-color: var(--orange-6);
+$mx-input-warning-shadow-color: var(--orange-6);
+$mx-input-focused-border-color: var(--neon-hover);
+$mx-input-focused-color: var(--text-main);
+$mx-input-focused-shadow-color: var(--neon-hover);
+$mx-input-hover-border-color: var(--neon-hover);
+$mx-input-placeholder-color: var(--text-secondary);
+$mx-input-layer-z-index: $z-index--11;
+$mx-input-alert-error-color: $mx-input-error-border-color;
+$mx-input-alert-warning-color: $mx-input-warning-border-color;
+$mx-input-alert-success-color: var(--success-color);
+$mx-input-clear-icon-color: var(--neon-main);
+$mx-input-clear-icon-disabled-color: var(--text-main);
+// ---
+
+//MxInputSearch
+// ---
+$mx-input-search-clear-icon-color: var(--neon-main);
+$mx-input-search-clear-icon-disabled-color: var(--text-main);
+// ---
+
+//MxButton
+// ---
+$mx-button-primary-solid-bg-color: var(--button-solid-bg-color);
+$mx-button-primary-solid-border-color: var(--surface-head-hover);
+$mx-button-primary-solid-color: var(--button-solid-text-color);
+$mx-button-primary-solid-hover-bg-color: var(--border-2);
+$mx-button-primary-solid-hover-border-color: var(--border-2);
+$mx-button-primary-solid-hover-color: var(--text-main);
+$mx-button-primary-solid-disabled-bg-color: var(--surface-disable);
+$mx-button-primary-solid-disabled-color: var(--text-disable);
+$mx-button-primary-solid-disabled-border-color: var(--surface-disable);
+
+$mx-button-primary-ghost-border-color: var(--border-2);
+$mx-button-primary-ghost-color: var(--text-main);
+$mx-button-primary-ghost-hover-color: var(--text-title);
+$mx-button-primary-ghost-disabled-border-color: var(--text-disable);
+
+$mx-button-outline-solid-bg-color: var(--surface-head-hover);
+$mx-button-outline-solid-color: var(--text-main);
+$mx-button-outline-solid-border-color: var(--border-2);
+$mx-button-outline-solid-hover-bg-color: var(--border-2);
+$mx-button-outline-solid-hover-border-color: var(--neon-hover);
+$mx-button-outline-solid-disabled-bg-color: var(--surface-disable);
+$mx-button-outline-solid-disabled-color: var(--text-disable);
+$mx-button-outline-solid-disabled-border-color: var(--border-1);
+
+$mx-button-danger-solid-bg-color: var(--indication-red);
+$mx-button-danger-solid-border-color: var(--indication-red);
+$mx-button-danger-solid-color: var(--button-solid-text-color);
+$mx-button-danger-solid-hover-bg-color: var(--indication-red-light);
+$mx-button-danger-solid-hover-color: var(--surface-main);
+$mx-button-danger-solid-disabled-bg-color: var(--surface-disable);
+$mx-button-danger-solid-disabled-color: var(--text-disable);
+$mx-button-danger-solid-disabled-border-color: var(--border-1);
+
+$mx-button-danger-ghost-border-color: var(--indication-red);
+$mx-button-danger-ghost-color: var(--indication-red);
+$mx-button-danger-ghost-hover-border-color: var(--indication-red-light);
+$mx-button-danger-ghost-hover-color: var(--indication-red-light);
+$mx-button-danger-ghost-disabled-border-color: var(--border-1);
+// ---
+
+//MxCollapse
+// ---
+$mx-collapse-border-color: var(--border-2);
+$mx-collapse-header-bg: var(--surface-head-hover);
+$mx-collapse-text-color: var(--text-main);
+$mx-collapse-disabled-bg: var(--surface-disable);
+$mx-collapse-content-bg: var(--surface-main);
+// ---
+
+// MxMenu
+// ---
+$mx-menu-item-first-level-bg: var(--menu-color);
+$mx-menu-item-first-level-hover: var(--menu-color-2);
+$mx-menu-item-second-level-bg: var(--menu-color-3);
+$mx-menu-item-second-level-hover: var(--menu-color-2);
+$mx-menu-item-active-indicator-bg: var(--menu-color-4);
+$mx-menu-item-active-indicator-width: 4px;
+$mx-menu-item-active: var(--menu-color-2);
+$mx-menu-item-width: 260px;
+$mx-menu-item-min-height: 52px;
+$mx-menu-item-popup-height: $mx-menu-item-min-height;
+$mx-menu-item-popup-width: 339px;
+$mx-menu-item-collapsed-width: 80px;
+$mx-menu-item-only-title-padding: 52px;
+$mx-menu-item-padding-top-bottom: 16px;
+$mx-menu-item-title-padding: 14px;
+$mx-menu-item-icon-padding: 20px;
+$mx-menu-item-disabled-color: var(--menu-color-5);
+$mx-menu-item-color: var(--menu-color-6);
+$mx-menu-bg: var(--menu-color);
+$mx-menu-submenu-arrow-padding: 11px;
+$mx-menu-submenu-arrow-padding-top: 18px;
+$mx-menu-background-color: var(--menu-color);
+$mx-menu-inline-toplevel-item-height: auto;
+$mx-menu-item-height: auto;
+$mx-menu-collapsed-width: 86px;
+$mx-menu-popup-bg: var(--menu-color-6);
+$mx-menu-highlight-color: var(--menu-color-7);
+$mx-menu-item-active-bg: var(--menu-color-2);
+$mx-menu-item-active-border-width: 3px;
+$mx-menu-item-group-title-color: var(--menu-color-8);
+$mx-menu-tooltip-color: var(--menu-color-6);
+$mx-menu-tooltip-bg: var(--menu-color-2);
+$mx-menu-submenu-open-bg: var(--menu-color);
+$mx-menu-submenu-open-item-selected-color: var(--menu-color-3);
+$mx-menu-submenu-collapsed-bg: var(--menu-color);
+$mx-menu-submenu-collapsed-item-selected-color: var(--menu-color-6);
+$mx-menu-submenu-collapsed-item-bg-selected-color: var(--menu-color-2);
+$mx-menu-icon-color: var(--menu-color-4);
+$mx-menu-icon-selected-color: var(--menu-color-6);
+$mx-menu-icon-disabled-color: var(--menu-color-5);
+$mx-menu-scroll-arrow-height: 44px;
+$mx-menu-logo-height: 120px;
+// ---
+
+//MxNavigation
+// ---
+$mx-navigation-background-color: var(--surface-main);
+$mx-navigation-padding: 16px;
+$mx-navigation-button-default-background-color: var(--surface-main);
+$mx-navigation-button-default-color: var(--text-main);
+$mx-navigation-button-hover-background-color: var(--border-2);
+$mx-navigation-button-hover-color: var(--text-main);
+$mx-navigation-button-disabled-color: var(--text-disable);
+$mx-navigation-button-selected-background-color: var(--surface-head-hover);
+$mx-navigation-button-selected-border-color: var(--border-2);
+$mx-navigation-button-selected-color: var(--text-main);
+$mx-navigation-button-margin-right: 16px;
+$mx-navigation-button-padding-left-right: 12px;
+$mx-navigation-button-min-height: 40px;
+$mx-navigation-button-border-radius: 4px;
+$mx-navigation-button-font-size: 12px;
+$mx-navigation-button-icon-margin-right: 8px;
+// ---
+
+//Bar
+// ---
+$mx-scroll-bar-dragger-background: var(--border-2);
+// ---
+
+//MxCard
+// ---
+$mx-card-font-color: var(--text-main);
+$mx-card-icon-color: var(--text-title);
+$mx-card-title-font-size: $mx-font-size--base;
+$mx-card-title-font-size-2: $mx-font-size--default;
+$mx-card-title-font-weight: $mx-font-weight--medium;
+$mx-card-background: var(--surface-main);
+$mx-card-hover-background: var(--surface-head-hover);
+$mx-card-border-1: var(--border-1);
+$mx-card-border-2: var(--background);
+// ---
+
+//MxSlider
+// ---
+$mx-slider-marker-text-color: var(--text-main);
+$mx-slider-point-text-color: var(--text-secondary);
+$mx-slider-line-color: var(--surface-disable);
+$mx-slider-fill-color: var(--daybreak-3);
+$mx-slider-handle-bg-color: var(--surface-main);
+$mx-slider-disabled-color: var(--text-disable);
+$mx-slider-border-color-hover: var(--neon-hover);
+$mx-slider-border-color-active: var(--neon-main);
+$mx-slider-container-padding: $padding-xlg;
+$mx-slider-height: 4px;
+$mx-slider-handle-size: 14px;
+// ---
+
+//MxKeyboard
+// ---
+$mx-keyboard-text-color: var(--keyboard-button-text-color);
+$mx-keyboard-text-color-hover: var(--keyboard-button-text-color-hover);
+$mx-keyboard-text-color-disabled: var(--keyboard-button-text-color-disable);
+$mx-keyboard-background-color:var(--surface-main);
+$mx-keyboard-button-background: var(--keyboard-button-color);
+$mx-keyboard-button-background-hover: var(--keyboard-button-color-hover);
+$mx-keyboard-button-background-active: var(--keyboard-button-color-active);
+$mx-keyboard-button-background-disabled: var(--keyboard-button-color-disable);
+$mx-keyboard-border-color: var(--keyboard-button-border-color);
+$mx-keyboard-layer-color: $dark-50;
+$mx-keyboard-key-size: 40px;
+$mx-keyboard-container-border-radius: 4px;
+$form-background: var(--surface-main);
+$input-background: var(--surface-in-press);
+$input-border: var(--border-2);
+$input-color-placeholder: var(--text-disable);
+$input-color-hover: var(--text-main);
+$button-background: var(--surface-head-hover);
+$button-background-disabled: var(--surface-disable);
+$button-background-hover: var(--border-2);
+$button-text-color: var(--text-main);
+$button-text-color-disabled: var(--text-disable);
+$theme-disabled-bg: var(--surface-disable);
+$mx-keyboard-layer-z-index: $z-index--11;
+// ---
+
+// MxLayout
+// ---
+$mx-layout-blur-color: $dark-80;
+$mx-layout-max-index: 9999;
+// ---
+
+// MxBreadcrumbs
+// ---
+$mx-breadcrumbs-text-color: var(--text-title);
+$mx-breadcrumbs-hover-color: var(--neon-hover);
+$mx-breadcrumbs-active-color: var(--text-main);
+// ---
+
+//MxCalendar
+// ---
+$mx-calendar-focus-color: var(--neon-main);
+$mx-calendar-secondary-color: var(--text-secondary);
+$mx-calendar-main-color: var(--text-main);
+$mx-calendar-hover-color: var(--surface-head-hover);
+$mx-calendar-between-color: var(--surface-main);
+$mx-calendar-selected-color: var(--border-2);
+$mx-calendar-active-color: var(--surface-in-press);
+$mx-calendar-disabled-color: var(--text-disable);
+$mx-calendar-border-color: var(--border-1);
+$mx-calendar-background: var(--surface-popover);
+$mx-calendar-arrow-active-color: var(--text-title);
+$mx-calendar-width-day: 24px;
+$mx-calendar-width: 260px;
+$mx-calendar-height: 329px;
+$mx-calendar-input-height: 38px;
+$mx-calendar-month-indicator-height: 38px;
+$mx-calendar-width-month: 60px;
+$mx-calendar-height-month: 24px;
+$mx-calendar-width-year: 48px;
+$mx-calendar-height-year: 24px;
+$mx-calendar-width-quarter: 86px;
+$mx-calendar-height-quarter: 24px;
+$mx-calendar-time-width: 70px;
+$mx-calendar-time-height: 24px;
+$mx-calendar-time-font-size-large: 16px;
+$mx-calendar-time-font-size-medium: 14px;
+$mx-calendar-time-font-size-small: 12px;
+$mx-calendar-time-selector-height: 152px;
+$mx-calendar-time-selector-padding-top: 20px;
+$mx-calendar-time-selector-padding-left: 44px;
+$mx-calendar-time-selector-width: 90px;
+$mx-calendar-time-padding: 10px;
+
+// ---
+
+//MxSelect
+// ---
+$mx-select-arrow-color: var(--text-disable);
+$mx-select-empty-search-text-padding: 16px;
+$mx-select-popper-border-radius: 4px;
+$mx-select-popper-background-color: var(--surface-popover);
+$mx-select-options-group-default-color: var(--text-secondary);
+$mx-select-options-group-font-size: 12px;
+$mx-select-option-default-color: var(--text-main);
+$mx-select-option-font-size: 14px;
+$mx-select-option-bg-hover: var(--surface-head-hover);
+$mx-select-option-disabled-color: var(--text-disable);
+$mx-select-option-selected-color: var(--surface-disable);
+// ---
+
+//MxInputNumber
+// ---
+$mx-input-number-border-color: var(--border-2);
+// ---
+
+//MxWindow
+// ---
+$mx-window-border-radius: $border-radius-xl;
+$mx-window-bg-color: var(--surface-popover);
+$mx-window-head-bg-color: var(--surface-head-hover);
+$mx-window-title-color: var(--text-title);
+$mx-window-title-font-size: $mx-font-size--default;
+$mx-window-icon-close-color: var(--text-title);
+// ---
+
+//MxConfirm
+// ---
+$mx-confirm-border-radius: $border-radius-xl;
+$mx-confirm-bg-color: var(--surface-popover);
+$mx-confirm-title-color: var(--text-title);
+$mx-confirm-title-font-size: $mx-font-size--default;
+$mx-window-icon-color: var(--text-title);
+$mx-window-icon-error-color: var(--dust-red-6);
+$mx-window-icon-confirm-color: var(--calendula-gold-6);
+$mx-window-icon-warning-color: var(--calendula-gold-6);
+$mx-window-icon-success-color: var(--indication-green);
+$mx-window-icon-info-color: var(--neon-main);
+// ---
+
+//MxSetting
+// ---
+$mx-setting-about-program-icon-color: $white;
+$mx-setting-about-info-color: var(--text-secondary);
+// ---
+
+//MxFilter
+// ---
+$mx-filter-checkbox-text-highlighted: var(--border-2);
+$mx-filter-background: var(--surface-main);
+
+//MxChart
+// ---
+$mx-chart-area-color: var(--border-2);
+$mx-chart-line-color: var(--border-2);
+$mx-chart-point-color: var(--neon-main);
+// ---
+
+//-------------------------------
+//-------------------------------

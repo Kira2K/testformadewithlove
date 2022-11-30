@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Gruppo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('gruppo-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Gruppo'),
+       url('gruppo-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('gruppo-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('gruppo-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('gruppo-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('gruppo-v10-latin-regular.svg#Gruppo') format('svg'); /* Legacy iOS */
+}

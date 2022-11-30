@@ -1,0 +1,82 @@
+@import '../../styles/ui';
+.settings {
+  a {
+    color: var(--text-main);
+    :hover {
+      color: var(--text-main);
+    }
+  }
+  &__icon {
+    height: 18px;
+  }
+  &__content-row {
+    display: flex;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+      color: var(--text-main);
+    }
+  }
+  &__item {
+    margin-left: 10px;
+  }
+  .mx-popover__content {
+    padding: 12px 16px;
+  }
+
+  &__trigger {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__theme {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    &-col {
+      width: 172px;
+      padding-left: 16px;
+      padding-right: 30px;
+
+      &:last-child {
+        padding-right: 16px;
+      }
+    }
+    &-image {
+      height: 200px;
+    }
+  }
+
+  &__icon {
+    margin-right: 8px;
+
+    &-exit {
+      .mx-icon {
+        color: var(--indication-red)
+      }
+    }
+
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__content {
+    position: relative;
+    width: 220px;
+    padding: 12px 8px;
+
+    &-row {
+      margin-top: 22px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.red {
+  color: var(--indication-red);
+}

@@ -1,0 +1,52 @@
+
+.logo {
+  &-wrapper {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  &--large {
+    height: auto;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    text-align: center;
+    color: $mx-logo-color;
+    width: 100%;
+    user-select: none;
+    margin: 10px auto 0px auto;
+    &--small {
+      padding-top: 3px;
+      font-size: 12px;
+      min-width: 34px;
+    }
+
+    &--medium {
+      padding-top: 16px;
+      font-size: 15px;
+    }
+
+    &--large {
+      display: none;
+    }
+  }
+
+  &__image {
+    &--small {
+      margin: 0 auto;
+      height: 50px;
+      width: 50px;
+    }
+
+    &--medium {
+      width: 156px;
+      height: 40px;
+    }
+
+    &--large {
+      width: 376px;
+      height: 100px;
+    }
+  }
+}

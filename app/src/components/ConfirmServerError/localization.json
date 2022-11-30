@@ -1,0 +1,12 @@
+{
+	"ru": {
+		"header": "Ошибка!",
+		"content": "К сожалению, эти данные временно не могут быть отображены.",
+		"cancelConfirm": "На главную страницу"
+	},
+	"en": {
+		"header": "Error!",
+		"content": "There is an error on server. Some data can not be displayed",
+		"cancelConfirm": "Go to main page"
+	}
+}
