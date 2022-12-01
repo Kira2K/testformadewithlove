@@ -2,7 +2,6 @@ import * as types from './types/mutations.type'
 
 export default {
   [types.SET_THEME] (state, value) {
-    localStorage.setItem('theme', value)
     state.$theme = value
   },
   [types.SET_LANG] (state, value) {

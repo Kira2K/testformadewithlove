@@ -3,7 +3,6 @@ import * as types from './types/mutations.type'
 
 export default {
   setThemeStyle ({ commit }, style) {
-    localStorage.setItem('theme', style)
     commit(types.SET_THEME, UIService.setThemeStyle(style))
   },
   changeMenuCollapsed ({ commit, state }) {
@@ -13,7 +12,6 @@ export default {
     commit(types.SET_MENU_COLLAPSED, value)
   },
   setLang ({ commit }, lang) {
-    localStorage.setItem('lang', lang)
     commit(types.SET_LANG, lang)
   },
   setSound ({ commit }, value) {

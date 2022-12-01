@@ -10,6 +10,6 @@ export const resolveAuth = async (to, next, store) => {
     next()
     return
   }
-  store.dispatch('user/setUserData', mockedData)
+  // store.dispatch('user/setUserData', mockedData)
   next()
 }

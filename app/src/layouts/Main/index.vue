@@ -168,7 +168,6 @@ export default {
 
   },
   mounted () {
-    if (this.$theme === '') this.setThemeStyle('dark')
   }
 }
 

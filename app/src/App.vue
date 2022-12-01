@@ -14,6 +14,13 @@ import RequestLoader from '@/components/RequestLoader'
 export default {
   name: 'Application',
   components: { RequestLoader, ConfirmServerError },
+  beforeCreate () {
+    this.$store.commit('initialiseStore')
+  },
+  created () {
+    // Toggle theme to make it work correct
+    this.$store.dispatch('ui/setThemeStyle', this.$theme ?? 'dark')
+  },
   computed: {
   },
   data () {
