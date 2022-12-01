@@ -58,7 +58,13 @@
       <div class="main__main-content-main">
         <slot />
       </div>
-
+      <div class="main__main-content-footer" >
+        <div class="main__main-content-footer-text">
+          <h4>
+            {{ l10n.footer}}
+          </h4>
+        </div>
+      </div>
     </div>
   </div>
 </template>
