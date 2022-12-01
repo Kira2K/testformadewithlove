@@ -1,5 +1,37 @@
 @import '../../styles/ui';
 .settings {
+  &__userdata{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+  }
+ &__username{
+  margin: 0px;
+  font-weight: bold;
+ }
+  &__flag {
+    height: 20px;
+    width: 30px;
+    margin-top: 3px;
+   margin-left: 15px;
+    --t-blue: #4fa5c2;
+    --t-pink: #f587ac;
+    --t-white: #f9fbfc;
+    background-image: linear-gradient(
+      var(--t-blue) 0%,
+      var(--t-blue) 20%,
+      var(--t-pink) 20%,
+      var(--t-pink) 40%,
+      var(--t-white) 40%,
+      var(--t-white) 60%,
+      var(--t-pink) 60%,
+      var(--t-pink) 80%,
+      var(--t-blue) 80%,
+      var(--t-blue) 100%
+    );
+  }
+  
   a {
     color: var(--text-main);
     :hover {
@@ -8,6 +40,7 @@
   }
   &__icon {
     height: 18px;
+    fill: var(--text-main);
   }
   &__content-row {
     display: flex;

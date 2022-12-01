@@ -6,6 +6,18 @@
         trigger="click">
       <el-button slot="reference" icon="el-icon-user"></el-button>
       <div class="settings__content">
+        <div class="settings__content-row">
+          <div class="settings__icon">
+            <admin></admin>
+          </div>
+          <div class="settings__item settings__userdata">
+            <p class="settings__username">
+              Kira Samsonova
+            </p>
+            <div class="settings__flag"></div>
+          </div>
+        </div>
+
         <div class="settings__content-row" v-if="langValue">
           <div class="settings__icon">
             <lang></lang>
@@ -71,6 +83,7 @@ import Lang from '@/components/Icons/Lang'
 import Theme from '@/components/Icons/Theme'
 import Manual from '@/components/Icons/Manual'
 import Logout from '@/components/Icons/Logout'
+import Admin from '@/components/Icons/Admin'
 import Dark from '@/components/Images/Dark'
 import Light from '@/components/Images/Light'
 
@@ -80,6 +93,7 @@ export default {
   name: 'UserSettings',
   components: {
     Lang,
+    Admin,
     Theme,
     Manual,
     Logout,
