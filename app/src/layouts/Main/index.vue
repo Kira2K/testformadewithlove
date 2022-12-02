@@ -73,7 +73,7 @@
 import { mapGetters, mapActions } from 'vuex'
 import localization from './localization.json'
 import { getUserRightsByRouteName } from '@/helpers/getUserRightsByRouteName'
-import { safeCopyObj } from '@/helpers/safeCopyObj'
+import { safeCopyObj } from '@/helpers/safeCopyObj.ts'
 import NavigationMenu from '@/components/NavigationMenu'
 import UserSettings from '@/components/UserSettings'
 import MenuFold from '@/components/Icons/MenuFold'

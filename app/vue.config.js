@@ -13,6 +13,7 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
+    config.resolve.extensions.store.add('.ts')
     config.module
       .rule('typescript')
       .test(/\.tsx?$/)

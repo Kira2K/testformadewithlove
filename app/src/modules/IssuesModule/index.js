@@ -1,5 +1,5 @@
 import routes from './routes'
-import store from '@/modules/IssuesModule/store'
+import store from './store'
 export default {
   install (Vue, options) {
     options.store.registerModule('issues', store)

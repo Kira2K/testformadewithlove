@@ -12,10 +12,10 @@ export default {
           '$soundOn',
           '$lang'
         ]),
-        $routes () {
+        $routes ():[] {
           return options.router.options.routes
         },
-        $appName () {
+        $appName ():string {
           return process.env.VUE_APP_NAME
         }
       },
