@@ -1,3 +1,3 @@
 export default {
-  getProgress: (state) => this.state.progress
+  getIssues: (state) => state.issues
 }

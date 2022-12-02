@@ -1,2 +1,0 @@
-export const SET_PROGRESS = 'SET_PROGRESS'
-export const SET_BRANCH_LIST = 'SET_BRANCH_LIST'

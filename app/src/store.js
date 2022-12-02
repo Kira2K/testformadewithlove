@@ -16,10 +16,9 @@ const store = new Vuex.Store({
   }
 })
 store.subscribe((mutation, state) => {
-  if (mutation.type !== 'initialiseStore') {
-    console.log(mutation, state)
-    // Store the state object as a JSON string
-    localStorage.setItem('store', JSON.stringify(state))
-  }
+  const type = mutation.type
+  if (type === 'initialiseStore' || type.includes('howServerError')) return
+  // Store the state object as a JSON string
+  localStorage.setItem('store', JSON.stringify(state))
 })
 export default store

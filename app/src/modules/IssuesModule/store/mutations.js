@@ -1,7 +1,7 @@
-import * as types from './types/mutations.type'
+import { Mutations } from './mutationTypes/index.ts'
 
 export default {
-  [types.SET_PROGRESS] (state, value) {
-    state.progress = value
+  [Mutations.SET_ISSUES] (state, value) {
+    state.issues = value
   }
 }

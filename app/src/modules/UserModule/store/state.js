@@ -1,7 +1,7 @@
 export default {
   $userName: '',
   $userID: '',
-  $roles: [],
+  $roles: ['admin'],
   $tableSettings: {},
   process: false
 }
