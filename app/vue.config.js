@@ -22,6 +22,9 @@ module.exports = {
       .end()
       .use('ts-loader')
       .loader('ts-loader')
+      .tap((options) =>
+        ({ ...options, happyPackMode: true })
+      )
 
     const cssMoludes = ['vue-modules', 'vue', 'normal-modules', 'normal']
     cssMoludes.forEach((rule) => {
