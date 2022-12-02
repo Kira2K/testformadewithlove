@@ -11,14 +11,15 @@ ul.drag-list, ul.drag-inner-list {
     margin: 0px auto 10px auto;
     height: 100%;
     padding-top: 20px;
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: var(--surface-main);
 }
 
 .drag-list {
     display: flex;
     align-items: flex-start;
-
+    height: 97%;
+    border-radius: 5px;
     @media (max-width: 690px) {
         display: block;
     }
@@ -26,11 +27,12 @@ ul.drag-list, ul.drag-inner-list {
 
 .drag-column {
     flex: 1;
-    margin: 0 10px;
+    margin: 0 7px;
     position: relative;
-    background: rgba(black, 0.2);
+    background: var(--surface-head-hover);
     overflow: hidden;
-
+    border-radius: 5px;
+    height: 100%;
     @media (max-width: 690px) {
         margin-bottom: 30px;
     }
@@ -48,25 +50,39 @@ ul.drag-list, ul.drag-inner-list {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    border-bottom:1px solid var(--dust-red-6);
+    
 }
-
+.drag-column-header,
+    .is-moved,
+    .drag-options {
+      background: var(--surface-in-press);
+    }
 .drag-inner-list {
     min-height: 50px;
-    color: white;
+    color: var(--text-main);
+    border:1px solid var(--border-1);
+    border-radius: 4px;
 }
-
 .drag-item {
-    padding: 10px;
+    padding: 15px 20px 30px 15px;
     margin: 10px;
-    height: 100px;
-    background: rgba(black, 0.4);
+    color: var(--text-main);
+    background: var(--surface-popover);
     transition: $ease-out;
-
-    &.is-moving {
-        transform: scale(1.5);
-        background: rgba(black, 0.8);
+    border-left:1px solid var(--polar-green-8);
+    border-radius: 4px;
+    &__inner {}
+    &__header {
+      color: var(--text-title);
     }
-
+    &__title {
+      margin: 7px 0px 0px 0px;
+    }
+    &.is-moving {
+        transform: scale(1.3);
+        background:  var(--surface-in-press);
+    }
 }
 
 .drag-header-more {
@@ -97,12 +113,6 @@ ul.drag-list, ul.drag-inner-list {
             opacity: 0.6;
         }
 
-        span {
-            display: inline-block;
-            font-size: 0.9rem;
-            font-weight: 400;
-            margin-left: 5px;
-        }
     }
 }
 
@@ -130,10 +140,6 @@ ul.drag-list, ul.drag-inner-list {
 .gu-transit {
   opacity: 0.2;
 }
-$on-hold: #FB7D44;
-$in-progress: #2A92BF;
-$needs-review: #F4CE46;
-$approved: #00B961;
 * {
   box-sizing: border-box;
 }
@@ -149,46 +155,19 @@ $approved: #00B961;
       margin-left: 10px;
       a {
           text-decoration: none;
-          color: white;
+          color:  var(--text-main);
           &:hover {
               text-decoration: underline;
           }
       }
   }
-  &-on-hold {
-    .drag-column-header,
-    .is-moved,
-    .drag-options {
-      background: $on-hold;
-    }
-  }
-  &-in-progress {
-    .drag-column-header,
-    .is-moved,
-    .drag-options {
-      background: $in-progress;
-    }
-  }
-  &-needs-review {
-    .drag-column-header,
-    .is-moved,
-    .drag-options{
-      background: $needs-review;
-    }
-  }
-  &-approved {
-    .drag-column-header,
-    .is-moved,
-    .drag-options {
-      background: $approved;
-    }
-  }
+
 }
 .section {
   padding: 20px;
   text-align: center;
   a {
-    color: white;
+    color:  var(--text-main);
     text-decoration: none;
     font-weight: 300;
   }
