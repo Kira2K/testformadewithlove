@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "outDir": "public",
     "moduleResolution": "node",
     "strict": true,
     "noImplicitAny": false,
@@ -13,14 +14,21 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": false,
+    "allowJs": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
+    "types": [
+      "webpack-env",
+      "jest"
+    ],
     "lib": ["esnext", "dom"],
     "paths": {
       "#*": ["./src*"]
-    }
+    },
   },
+  "exclude": [
+    "node_modules","public/**/*"
+  ],
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

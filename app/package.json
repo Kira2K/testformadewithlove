@@ -34,10 +34,12 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-plugin-unit-jest": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-standard": "^8.0.1",
@@ -58,6 +60,7 @@
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
     "string-strip-html": "^11.6.8",
+    "ts-jest": "^27.0.4",
     "typescript": "^4.8.4",
     "vue-docgen-api": "^4.52.0",
     "vue-docgen-loader": "^2.0.0",
@@ -73,7 +76,7 @@
     "not dead"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
   },
   "engines": {
     "node": ">=16.0.0"
