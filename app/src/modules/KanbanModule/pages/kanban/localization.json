@@ -1,8 +1,14 @@
 {
   "ru": {
-    "kanban": "Канбан"
+    "kanban": "Канбан",
+    "task": "Задача",
+    "addNew": "Создать задачу",
+    "availableNext": "Будет доступно в следующих версиях"
   },
   "en": {
-    "kanban": "Kanban"
+    "kanban": "Kanban",
+    "task": "Task",
+    "addNew": "Create new issue",
+    "availableNext": "This option will be available in new versions of Jira..almost"
   }
 }

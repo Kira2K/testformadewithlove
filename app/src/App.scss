@@ -1,6 +1,6 @@
 @import 'styles/ui';
 @import './kanban.scss';
-// some scss copied from my another project
+// Some SCSS copied from my another project to add styles with variables to default element.ui components
 .layout {
   display: flex;
   flex-direction: column;
@@ -490,7 +490,20 @@
     margin: 0px;
   }
 }
-
+//el-message-box
+.el-message-box {
+  background-color: var(--surface-popover);
+  border: none;
+  &__title {
+    color: var(--text-title);
+  }
+  &__content {
+    color: var(--text-main);
+  }
+  &__close {
+    color: var(--text-main)!important;
+  }
+}
 //header
 .header {
   color: var(--text-title);

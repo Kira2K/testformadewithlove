@@ -3,7 +3,7 @@
     <div class="main__side-menu">
       <navigation-menu
         class="main__side-menu-item"
-        :logo-title="l10n.kira"
+        :logo-title="l10n['jira..almost']"
         :lang="$lang"
         :theme="$theme"
         :routes="allowedRoutes"

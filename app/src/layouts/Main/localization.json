@@ -2,15 +2,15 @@
 	"ru": {
 		"about": "О программе",
 		"theme": "Сменить тему",
-		"kira": "Джира.. ну почти",
-		"soon": "Будет доступно в следующих версиях Kira",
+		"jira..almost": "Джира.. ну почти",
+		"soon": "Будет доступно в следующих версиях Jira..almost",
 		"footer": "Какая-то очень важная информация"
 	},
 	"en": {	
 		"about": "About program",
 		"theme": "Change theme",
-		"kira": "Jira.. almost",
-		"soon": "Be available in the next version of Kira",
+		"jira..almost": "Jira.. almost",
+		"soon": "Be available in the next version of Jira..almost",
 		"footer": "Some cool footer info"
 	}
   }
