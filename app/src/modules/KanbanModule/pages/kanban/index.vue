@@ -68,8 +68,7 @@ export default Vue.extend({
       this.changeIssueStatusById(args)
     },
     createNewIssue ():void {
-      // const text = this.l10n.availableNext
-      this.$setTextShowServerError('text')
+      this.$router.push({ path: 'issues/create' })
     }
   },
   async mounted () {
