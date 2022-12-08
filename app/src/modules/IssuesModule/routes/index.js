@@ -1,4 +1,5 @@
 import IssuesPage from '@/modules/IssuesModule/pages/issues'
+import SingleIssuePage from '@/modules/IssuesModule/pages/singleIssue'
 
 export default [
   {
@@ -18,6 +19,27 @@ export default [
         ru: 'Задачи',
         en: 'Issues'
       }
-    }
+    },
+    children: [
+      {
+        path: '/issues/:id',
+        name: 'singleIssuePage',
+        component: SingleIssuePage,
+        meta: {
+          auth: true,
+          icon: 'Issues',
+          mainMenu: false,
+          favoriteCards: false,
+          menuItemsCards: false,
+          selected: false,
+          disabled: false,
+          roles: ['admin', 'issues_read'],
+          title: {
+            ru: 'Редактирование',
+            en: 'Issue editing'
+          }
+        }
+      }
+    ]
   }
 ]

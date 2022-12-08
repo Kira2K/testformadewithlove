@@ -1,17 +1,13 @@
 <template>
-  <main-layout>
-    <router-view v-if="isSubPage" />
-<in-development  v-else></in-development>
-  </main-layout>
+<in-development></in-development>
 </template>
 
 <script>
-import MainLayout from '@/layouts/Main'
 import InDevelopment from '@/components/InDevelopment'
 import localization from '@/modules/MainModule/pages/main/localization.json'
 export default {
-  name: 'IssuesPage',
-  components: { InDevelopment, MainLayout },
+  name: 'SingleIssuePage',
+  components: { InDevelopment },
   data () {
     return {
     }
@@ -19,9 +15,6 @@ export default {
   computed: {
     l10n () {
       return localization[this.$lang]
-    },
-    isSubPage () {
-      return this.$route.matched.length > 1
     }
   },
   methods: {

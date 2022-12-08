@@ -129,16 +129,21 @@ export default {
     ]),
     ...mapGetters('status', ['status']),
     allowedRoutes () {
-      const allowedRoutes = []
+      let allowedRoutes = []
       this.$routes.map(el => {
         const route = safeCopyObj(el)
         const rights = getUserRightsByRouteName({ routeName: route.name, roles: this.$roles })
-        if (rights.read)allowedRoutes.push(route)
+        if (rights.read) allowedRoutes = this.$routes.filter(x => x?.meta?.mainMenu)
       })
       allowedRoutes.map(route => {
-        if (route.children) {
-          route.children = route.children.filter(childRoute => getUserRightsByRouteName({ routeName: childRoute.name, roles: this.$roles }).read)
-        }
+        if (!route.children || route.children.length < 1) return route
+
+        route.children = route.children.filter(childRoute => {
+          const rights = getUserRightsByRouteName({ routeName: childRoute.name, roles: this.$roles }).read
+          if (rights.read) return childRoute?.meta?.mainMenu
+        })
+        if (route.children.length === 0) delete route.children
+        return route
       })
       return allowedRoutes
     },
