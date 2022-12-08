@@ -17,7 +17,7 @@ const store = new Vuex.Store({
 })
 store.subscribe((mutation, state) => {
   const type = mutation.type
-  if (type === 'initialiseStore' || type.includes('howServerError')) return
+  if (type === 'initialiseStore' || type.includes('Server') || type.includes('SERVER')) return
   // Store the state object as a JSON string
   localStorage.setItem('store', JSON.stringify(state))
 })

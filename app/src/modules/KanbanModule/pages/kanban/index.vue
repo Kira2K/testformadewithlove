@@ -61,7 +61,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions('issues', [
-      'changeIssueStatusById'
+      'changeIssueStatusById', 'fetchIssuesList'
     ]),
     updateBlock (id, status):void {
       const args:ChangeIssueStatusByIdArg = { id: Number(id), status }
@@ -72,7 +72,8 @@ export default Vue.extend({
       this.$setTextShowServerError('text')
     }
   },
-  mounted () {
+  async mounted () {
+    await this.fetchIssuesList()
   }
 })
 </script>
