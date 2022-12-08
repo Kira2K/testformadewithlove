@@ -362,6 +362,10 @@
   }
 }
 
+.el-form-item__label {
+  color: var(--text-main) !important;
+}
+
 //el-select
 .el-select {
   &:hover {

@@ -1,7 +1,9 @@
 <template>
   <main-layout>
+    <template>
     <router-view v-if="isSubPage" />
 <in-development  v-else></in-development>
+  </template>
   </main-layout>
 </template>
 

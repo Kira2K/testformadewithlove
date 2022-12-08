@@ -1,8 +1,26 @@
 {
   "ru": {
-    "kanban": "Канбан"
+    "editHeaderText": "Редактирование задачи № ",
+    "createHeaderText": "Создание новой задачи",
+    "title": "Название",
+    "stage": "Этап",
+    "stages": "Выберите этап",
+    "desc": "Описание",
+    "save": "Сохранить",
+    "reset": "Сбросить",
+    "required": "Это поле должно быть заполнено",
+    "minMax": "Значение должно быть между  5 и 256"
   },
   "en": {
-    "kanban": "Kanban"
+    "editHeaderText": "Editing issue № ",
+    "createHeaderText": "New issue creation",
+    "title": "Title",
+    "stage": "Stage",
+    "stages": "Choose stage",
+    "desc": "Description",
+    "save": "Save",
+    "reset": "Reset",
+    "required": "This field is required",
+    "minMax": "Length should be 5 to 256"
   }
 }
