@@ -9,7 +9,7 @@
       {{l10n.addNew}}
       </el-button>
     <kanban-board
-      :stages="stages"
+      :stages="getStages"
       :blocks="getIssues"
       @update-block="updateBlock"
       >
@@ -47,13 +47,15 @@ export default Vue.extend({
   components: { MainLayout },
   data () {
     return {
-      stages: ['on-hold', 'in-progress', 'needs-review', 'approved', 'production']
     }
   },
 
   computed: {
     ...mapGetters('issues', [
       'getIssues'
+    ]),
+    ...mapGetters('kanban', [
+      'getStages'
     ]),
     l10n ():Object {
       return localization[this.$lang]
@@ -62,6 +64,9 @@ export default Vue.extend({
   methods: {
     ...mapActions('issues', [
       'changeIssueStatusById', 'fetchIssuesList'
+    ]),
+    ...mapActions('kanban', [
+      'fetchStages'
     ]),
     updateBlock (id, status):void {
       const args:ChangeIssueStatusByIdArg = { id: Number(id), status }
@@ -72,7 +77,8 @@ export default Vue.extend({
     }
   },
   async mounted () {
-    await this.fetchIssuesList()
+    this.fetchStages()
+    this.fetchIssuesList()
   }
 })
 </script>

@@ -1,9 +1,12 @@
 <template>
 
 <el-form :model="form" :rules="rules" ref="form" label-width="120px" class="demo-ruleForm form">
-   <header class="form__header">{{headerText}}</header>
-
-   <el-row >
+    <el-row :gutter="20">
+      <el-col :span="24">
+        <header class="form__header">{{headerText}}</header>
+      </el-col>
+   </el-row>
+   <el-row :gutter="20">
       <el-col  :sm="24" :md="12" >
         <el-form-item :label="l10n.title" prop="title" :span="4">
           <el-input v-model="form.title"></el-input>
@@ -15,7 +18,7 @@
           <el-select v-model="form.status" :placeholder="l10n.stages" class="form__select">
             <el-option
             :key="stage"
-            v-for="stage in stages"
+            v-for="stage in getStages"
             :label="stage"
             :value="stage"
             >
@@ -27,7 +30,7 @@
 
    <el-row :gutter="20">
       <el-col :span="24">
-        <el-form-item :label="l10n.description" prop="description">
+        <el-form-item :label="l10n.desc" prop="description">
           <el-input type="textarea" v-model="form.description"></el-input>
         </el-form-item>
       </el-col>
@@ -51,47 +54,51 @@
 import localization from './localization.json'
 import { safeCopyObj } from '@/helpers/safeCopyObj'
 import { mapGetters, mapActions } from 'vuex'
-import { Issue } from '@/types'
 import { IssuesManagerModule } from '@/helpers/IssuesManager/index'
 import Vue from 'vue'
+import { Issue } from '@/types'
 const form:IssuesManagerModule.CreateEditIssueArgs = {
   id: null,
   title: '',
   status: '',
   description: ''
 }
+let editId:number
 export default Vue.extend({
   name: 'SingleIssuePage',
   components: { },
   data () {
     return {
       form,
-      editId: null,
-      stages: ['on-hold', 'in-progress', 'needs-review', 'approved', 'production']
+      editId
     }
   },
   computed: {
-    rules () {
+    ...mapGetters('kanban', [
+      'getStages'
+    ]),
+    rules ():Object {
+      const l10n = this.l10n
       return {
         title: [
-          { required: true, message: this.l10n.required, trigger: 'blur' },
-          { min: 5, max: 256, message: this.l10n.minMax, trigger: 'blur' }
+          { required: true, message: l10n.required, trigger: 'blur' },
+          { min: 5, max: 256, message: l10n.minMax, trigger: 'blur' }
         ],
         status: [
-          { required: true, message: this.l10n.required, trigger: 'change' }
+          { required: true, message: l10n.required, trigger: 'change' }
         ],
         description: [
-          { required: true, message: this.l10n.required, trigger: 'blur' }
+          { required: true, message: l10n.required, trigger: 'blur' }
         ]
       }
     },
-    l10n () {
+    l10n ():{[key: string]: string} {
       return localization[this.$lang]
     },
-    getMode () {
+    getMode ():string {
       return this.editId ? 'edit' : 'create'
     },
-    headerText () {
+    headerText ():string {
       return this.getMode === 'edit' ? this.l10n.editHeaderText + this.editId : this.l10n.createHeaderText
     }
   },
@@ -99,21 +106,25 @@ export default Vue.extend({
     ...mapActions('issues', [
       'createEditIssue'
     ]),
-    getIssueId ():boolean {
+    ...mapActions('kanban', [
+      'fetchStages'
+    ]),
+    getIssueId ():Issue['id']|undefined {
       const path = safeCopyObj(this.$route.path)
       const title = path.split('/').pop()
       const maybeNumber = Number(title)
       const isNumber = !isNaN(maybeNumber)
       if (isNumber) this.editId = maybeNumber
-      return isNumber
+      return maybeNumber
     },
-    resetForm (formName) {
-      this.$refs[formName].resetFields()
+    resetForm (formName):void {
+      const formRef = this.$refs[formName] as HTMLFormElement|undefined
+      formRef?.resetFields()
     },
-    async submitForm (formName:string):boolean {
-      let isValid:boolean
-
-      this.$refs[formName].validate(valid => {
+    async submitForm (formName:string):Promise<boolean> {
+      let isValid:boolean = false
+      const formRef = this.$refs[formName] as HTMLFormElement|undefined
+      await formRef?.validate(valid => {
         isValid = valid
       })
       if (!isValid) return false
@@ -121,14 +132,15 @@ export default Vue.extend({
       return true
     },
 
-    async saveFormData () {
+    async saveFormData ():Promise<void> {
       const issue = await this.createEditIssue({ form: this.form })
       if (!issue || issue.id) this.$router.push({ path: '/kanban' })
     }
   },
   mounted () {
-    const hasId = this.getIssueId()
-    if (hasId)console.log('The page is in edit mode')
+    this.fetchStages()
+    const id = this.getIssueId()
+    if (id)console.log('The page is in edit mode with issue id === ' + id)
   }
 })
 </script>

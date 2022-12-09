@@ -1,3 +1,3 @@
 export default {
-  progress: false
+  stages: []
 }

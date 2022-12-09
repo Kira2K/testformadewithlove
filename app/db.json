@@ -2,5 +2,12 @@
   "issues": [
     { "id": 1, "status": "on-hold", "title": "Lorem issue title",
     "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit eum ea inventore voluptate quos! Magni, excepturi earum. Itaque ad harum minima sint, facilis sunt esse iure id quisquam architecto perferendis."  }
+  ],
+  "stages": [
+    "on-hold",
+    "in-progress",
+    "needs-review",
+    "approved",
+    "production"
   ]
 }

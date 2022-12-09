@@ -1,7 +1,7 @@
 import { Mutations } from './mutationTypes'
 
 export default {
-  [Mutations.SET_PROGRESS] (state, value) {
-    state.progress = value
+  [Mutations.SET_STAGES] (state, value) {
+    state.stages = value
   }
 }

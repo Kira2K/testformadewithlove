@@ -2,10 +2,10 @@ import { Issue } from '@/types'
 import axios from 'axios'
 export module IssuesManagerModule {
   export interface CreateEditIssueArgs extends Omit<Issue, 'id'>{
-    id?: number,
+    id?: Maybe<Issue['id']>,
   }
   export interface IssuesManagerConstructorInterface extends CreateEditIssueArgs{
-    id?: Issue['id'] | undefined
+  id?:Maybe<Issue['id']>
   status: Issue['status']
   title:Issue['title']
   description: Issue['description']
@@ -20,7 +20,7 @@ export module IssuesManagerModule {
  * @private errorText
 */
 export class IssuesManager implements IssuesManagerModule.IssuesManagerConstructorInterface {
-  id?:Issue['id'] | undefined
+  id?:Maybe<Issue['id']>
   status:Issue['status']
   title:Issue['title']
   description: Issue['description']
@@ -73,8 +73,8 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
  * get the class mode based on "id" prop existing
 */
   private get isEditMode ():boolean {
-    const isIdExist = (id: Issue['id']| undefined):id is Issue['id'] => {
-      return (<Issue['id']>id) !== undefined
+    const isIdExist = (id: Maybe<Issue['id']>):id is Issue['id'] => {
+      return !!<Issue['id']>id
     }
     return isIdExist(this.id)
   }

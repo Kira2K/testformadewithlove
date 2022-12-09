@@ -1,6 +1,8 @@
+import { Stage } from './Stage'
+
 export interface Issue {
   id: number,
-  status: string,
+  status: Stage,
   title: string,
   description: string
 }

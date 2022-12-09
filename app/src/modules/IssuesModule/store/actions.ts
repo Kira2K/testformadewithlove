@@ -30,17 +30,21 @@ export default {
     }
   },
 
-  changeIssueStatusById ({ commit, state }, { id, status }:ChangeIssueStatusByIdArg) {
+  async changeIssueStatusById ({ dispatch, state, rootGetters }, { id, status }:ChangeIssueStatusByIdArg):Promise<Maybe<Issue>> {
     if (!id || typeof id !== 'number' || isNaN(id)) {
       throw Error('id is not defined or has incorrect type')
     }
-    if (!status || typeof status !== 'string') {
+
+    const stages = rootGetters['kanban/getStages']
+    if (!status || typeof status !== 'string' || !stages.includes(status)) {
       throw Error('status is not defined or has incorrect type')
     }
     const issues:Issue[] = safeCopyObj(state.issues)
     const issue = issues.find(issue => issue.id === id)
-    if (!issue) throw Error('no issue with this id found')
+    if (!issue) throw Error('no issue with this id was found')
     issue.status = status
-    commit(Mutations.SET_ISSUES, issues)
+
+    const issuesManager = new IssuesManager({ ...issue, errorFunc: (text) => dispatch('$setTextShowServerError', text, { root: true }) })
+    return await issuesManager.createEditIssue()
   }
 }

@@ -1,3 +1,3 @@
 export enum Mutations {
-  SET_STATUS = 'SET_PROGRESS',
+  SET_STAGES = 'SET_STAGES',
 }

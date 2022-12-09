@@ -1,5 +1,5 @@
-import { Issue } from '@/types'
+import { Issue, Stage } from '@/types'
 export type ChangeIssueStatusByIdArg = {
   id: Issue['id'],
-  status: string
+  status: Stage
 }
