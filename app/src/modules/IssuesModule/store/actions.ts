@@ -1,8 +1,17 @@
 import { Issue, ChangeIssueStatusByIdArg } from '@/types'
 import { Mutations } from './mutationTypes'
 import { safeCopyObj } from '@/helpers/safeCopyObj'
+import { IssuesManagerModule, IssuesManager } from '@/helpers/IssuesManager'
 import axios from 'axios'
 export default {
+  async createEditIssue (
+    { dispatch },
+    { form }:{form: IssuesManagerModule.CreateEditIssueArgs}
+  ):Promise<Maybe<Issue>> {
+    const { id, status, title, description } = form
+    const issuesManager = new IssuesManager({ id, title, status, description, errorFunc: (text) => dispatch('$setTextShowServerError', text, { root: true }) })
+    return await issuesManager.createEditIssue()
+  },
   async fetchIssuesList ({ commit, dispatch }):Promise<Maybe<Issue[]>> {
     const backAddr = process.env.VUE_APP_BACKEND_ADDR
 

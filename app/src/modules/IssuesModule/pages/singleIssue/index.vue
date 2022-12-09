@@ -12,9 +12,14 @@
 
       <el-col :sm="24" :md="12">
         <el-form-item :label="l10n.stage" prop="stages" :span="4">
-          <el-select v-model="form.stages" :placeholder="l10n.stages" class="form__select">
-            <el-option label="Zone one" value="shanghai"></el-option>
-            <el-option label="Zone two" value="beijing"></el-option>
+          <el-select v-model="form.status" :placeholder="l10n.stages" class="form__select">
+            <el-option
+            :key="stage"
+            v-for="stage in stages"
+            :label="stage"
+            :value="stage"
+            >
+            </el-option>
           </el-select>
         </el-form-item>
       </el-col>
@@ -22,8 +27,8 @@
 
    <el-row :gutter="20">
       <el-col :span="24">
-        <el-form-item :label="l10n.desc" prop="desc">
-          <el-input type="textarea" v-model="form.desc"></el-input>
+        <el-form-item :label="l10n.description" prop="description">
+          <el-input type="textarea" v-model="form.description"></el-input>
         </el-form-item>
       </el-col>
    </el-row>
@@ -32,8 +37,8 @@
       <el-col :sm="8" :md="24">
         <el-form-item >
           <div class="form__btn-container">
-            <el-button class="form__btn" @click="submitForm('form')">{{l10n.save}}</el-button>
-            <el-button class="form__btn" type="danger" @click="resetForm('form')">{{l10n.reset}}</el-button>
+            <el-button class="form__btn" @click="resetForm('form')">{{l10n.reset}}</el-button>
+            <el-button class="form__btn" type="danger" @click="submitForm('form')">{{l10n.save}}</el-button>
           </div>
 
         </el-form-item>
@@ -42,20 +47,27 @@
 </el-form>
 </template>
 
-<script>
+<script lang="ts">
 import localization from './localization.json'
 import { safeCopyObj } from '@/helpers/safeCopyObj'
-export default {
+import { mapGetters, mapActions } from 'vuex'
+import { Issue } from '@/types'
+import { IssuesManagerModule } from '@/helpers/IssuesManager/index'
+import Vue from 'vue'
+const form:IssuesManagerModule.CreateEditIssueArgs = {
+  id: null,
+  title: '',
+  status: '',
+  description: ''
+}
+export default Vue.extend({
   name: 'SingleIssuePage',
   components: { },
   data () {
     return {
-      form: {
-        title: '',
-        stages: '',
-        desc: ''
-      },
-      editId: null
+      form,
+      editId: null,
+      stages: ['on-hold', 'in-progress', 'needs-review', 'approved', 'production']
     }
   },
   computed: {
@@ -65,10 +77,10 @@ export default {
           { required: true, message: this.l10n.required, trigger: 'blur' },
           { min: 5, max: 256, message: this.l10n.minMax, trigger: 'blur' }
         ],
-        stages: [
+        status: [
           { required: true, message: this.l10n.required, trigger: 'change' }
         ],
-        desc: [
+        description: [
           { required: true, message: this.l10n.required, trigger: 'blur' }
         ]
       }
@@ -84,31 +96,41 @@ export default {
     }
   },
   methods: {
-    getIssueId () {
+    ...mapActions('issues', [
+      'createEditIssue'
+    ]),
+    getIssueId ():boolean {
       const path = safeCopyObj(this.$route.path)
       const title = path.split('/').pop()
       const maybeNumber = Number(title)
       const isNumber = !isNaN(maybeNumber)
       if (isNumber) this.editId = maybeNumber
-    },
-    submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          console.log('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+      return isNumber
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
+    },
+    async submitForm (formName:string):boolean {
+      let isValid:boolean
+
+      this.$refs[formName].validate(valid => {
+        isValid = valid
+      })
+      if (!isValid) return false
+      await this.saveFormData()
+      return true
+    },
+
+    async saveFormData () {
+      const issue = await this.createEditIssue({ form: this.form })
+      if (!issue || issue.id) this.$router.push({ path: '/kanban' })
     }
   },
   mounted () {
-    this.getIssueId()
+    const hasId = this.getIssueId()
+    if (hasId)console.log('The page is in edit mode')
   }
-}
+})
 </script>
 
 <style scoped lang="scss" src="./style.scss" />
