@@ -11,11 +11,20 @@ export module IssuesManagerModule {
   description: Issue['description']
   errorFunc: ErrorFunc
   }
+  export interface findIssueByIdArgs {
+    id: Issue['id']
+    errorFunc: ErrorFunc
+  }
+  export interface deleteIssueByIdArgs extends IssuesManagerModule.findIssueByIdArgs {
+    status: Issue['status']
+  }
 }
 
 /**
  * @class IssuesManager
  * @public createEditIssue
+ * @public findIssueById
+ * @public deleteIssueById
  * @private isEditMode
  * @private errorText
 */
@@ -41,7 +50,7 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
   }
 
   /**
- * Main function, which creates new issue or edit existing one
+ * Creates new issue or edit existing one
 */
   public async createEditIssue ():Promise<Maybe<Issue>> {
     const isEditMode = this.isEditMode
@@ -54,12 +63,10 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
     const id = this.id
     if (isEditMode && id) form.id = id
     const method = isEditMode ? 'put' : 'post'
-    const api = process.env.VUE_APP_BACKEND_ADDR + 'issues'
-    const path = api + (isEditMode ? '/' + id : '')
 
     // Creating process
     try {
-      const { data } = await axios[method](path, { ...form })
+      const { data } = await axios[method](this.path, { ...form })
       if (!data || data.name === 'AxiosError') throw Error('Can not find issues')
 
       return data
@@ -67,6 +74,53 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
       this.errorFunc(this.errorText)
       console.log(error)
     }
+  }
+
+  /**
+ * Delete existing issue, if issue stage is 'production'
+*/
+  public static async deleteIssueById ({ id, status, errorFunc }:IssuesManagerModule.deleteIssueByIdArgs):Promise<Maybe<Issue>> {
+    const issuesManager = new IssuesManager({ id, title: '', status, description: '', errorFunc })
+    let errorText = 'Can not delete Issue with id === ' + id
+    try {
+      if (status !== 'production') {
+        errorText = 'May delete issues only with "Production" status'
+        throw Error(errorText)
+      }
+      const { data } = await axios.delete(issuesManager.path)
+      if (!data || data.name === 'AxiosError') throw Error(errorText)
+
+      return data
+    } catch (error:unknown) {
+      issuesManager.errorFunc(errorText)
+      console.log(error)
+    }
+  }
+
+  /**
+ * Find existing issue by it's unique id, @returns the Issue
+*/
+  public static async findIssueById ({ id, errorFunc }:IssuesManagerModule.deleteIssueByIdArgs):Promise<Maybe<Issue>> {
+    const issuesManager = new IssuesManager({ id, title: '', status: '', description: '', errorFunc })
+    const errorText = 'Can not find Issue with Id === ' + id
+    try {
+      const { data } = await axios.get(issuesManager.path)
+      if (!data || data.name === 'AxiosError') throw Error('errorText')
+
+      return data
+    } catch (error:unknown) {
+      issuesManager.errorFunc(errorText)
+      console.log(error)
+    }
+  }
+
+  /**
+ * get basic path for issues manilupating
+*/
+  private get path ():string {
+    const api = process.env.VUE_APP_BACKEND_ADDR + 'issues'
+    const path = api + (this.isEditMode ? '/' + this.id : '')
+    return path
   }
 
   /**

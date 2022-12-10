@@ -21,12 +21,26 @@
         <div class="drag-item__header">
           <router-link
             :to="'/issues/'+block.id"
-            class="drag-item__header"
+            class="drag-item__header-title"
             >
             <span>
               {{l10n.task}} {{ block.id }}
             </span>
           </router-link>
+
+            <i
+              v-if="block.status!=='production'"
+              class="el-icon-edit-outline"
+              @click="()=>$router.push('/issues/'+block.id)"
+              >
+            </i>
+
+            <i
+              v-else
+              class="el-icon-delete"
+              @click="deleteIssue({issue:block})"
+              >
+            </i>
         </div>
         <div class="drag-item__body">
           <p class="drag-item__title">{{ block.title }}</p>
@@ -63,14 +77,16 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions('issues', [
-      'changeIssueStatusById', 'fetchIssuesList'
+      'changeIssueStatusById', 'fetchIssuesList', 'deleteIssue'
     ]),
     ...mapActions('kanban', [
       'fetchStages'
     ]),
-    updateBlock (id, status):void {
+    async updateBlock (id, status):Promise<void> {
       const args:ChangeIssueStatusByIdArg = { id: Number(id), status }
-      this.changeIssueStatusById(args)
+      await this.changeIssueStatusById(args).then((updatedIssue) => {
+        if (updatedIssue) this.fetchIssuesList()
+      })
     },
     createNewIssue ():void {
       this.$router.push({ path: 'issues/create' })

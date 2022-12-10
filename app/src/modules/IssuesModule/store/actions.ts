@@ -29,6 +29,21 @@ export default {
       dispatch('$setShowServerError', true, { root: true })
     }
   },
+  async deleteIssue ({ dispatch }, { issue }):Promise<boolean> {
+    console.log(issue)
+    const { id, status } = issue
+    try {
+      await IssuesManager.deleteIssueById({
+        id,
+        status,
+        errorFunc: (text) => dispatch('$setTextShowServerError', text, { root: true })
+      })
+    } catch (error) {
+      return false
+    }
+    dispatch('fetchIssuesList')
+    return true
+  },
 
   async changeIssueStatusById ({ dispatch, state, rootGetters }, { id, status }:ChangeIssueStatusByIdArg):Promise<Maybe<Issue>> {
     if (!id || typeof id !== 'number' || isNaN(id)) {

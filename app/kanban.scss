@@ -75,6 +75,8 @@ ul.drag-list, ul.drag-inner-list {
     &__inner {}
     &__header {
       color: var(--text-title);
+      display: flex;
+      justify-content: space-between;
     }
     &__title {
       margin: 7px 0px 0px 0px;
