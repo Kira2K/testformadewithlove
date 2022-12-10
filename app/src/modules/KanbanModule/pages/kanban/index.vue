@@ -30,14 +30,14 @@
 
             <i
               v-if="block.status!=='production'"
-              class="el-icon-edit-outline"
+              class="el-icon-edit-outline drag-item__icon"
               @click="()=>$router.push('/issues/'+block.id)"
               >
             </i>
 
             <i
               v-else
-              class="el-icon-delete"
+              class="el-icon-delete drag-item__icon"
               @click="deleteIssue({issue:block})"
               >
             </i>
