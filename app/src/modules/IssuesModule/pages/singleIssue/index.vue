@@ -54,7 +54,7 @@
 import localization from './localization.json'
 import { safeCopyObj } from '@/helpers/safeCopyObj'
 import { mapGetters, mapActions } from 'vuex'
-import { IssuesManagerModule } from '@/helpers/IssuesManager/index'
+import { IssuesManagerModule, IssuesManager } from '@/helpers/IssuesManager/index'
 import Vue from 'vue'
 import { Issue } from '@/types'
 const form:IssuesManagerModule.CreateEditIssueArgs = {
@@ -132,6 +132,11 @@ export default Vue.extend({
       return true
     },
 
+    async initIssue ({ id }:{id:Issue['id']}) {
+      const issue = await IssuesManager.findIssueById({ id, errorFunc: this.$setTextShowServerError })
+      if (!issue) return this.$router.replace({ path: '/issues/create' })
+      this.form = issue
+    },
     async saveFormData ():Promise<void> {
       const issue = await this.createEditIssue({ form: this.form })
       if (!issue || issue.id) this.$router.push({ path: '/kanban' })
@@ -140,7 +145,7 @@ export default Vue.extend({
   mounted () {
     this.fetchStages()
     const id = this.getIssueId()
-    if (id)console.log('The page is in edit mode with issue id === ' + id)
+    if (id) this.initIssue({ id })
   }
 })
 </script>

@@ -78,6 +78,9 @@ ul.drag-list, ul.drag-inner-list {
       display: flex;
       justify-content: space-between;
     }
+    &__icon::before {
+      cursor: pointer;
+    }
     &__title {
       margin: 7px 0px 0px 0px;
     }

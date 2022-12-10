@@ -100,7 +100,7 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
   /**
  * Find existing issue by it's unique id, @returns the Issue
 */
-  public static async findIssueById ({ id, errorFunc }:IssuesManagerModule.deleteIssueByIdArgs):Promise<Maybe<Issue>> {
+  public static async findIssueById ({ id, errorFunc }:IssuesManagerModule.findIssueByIdArgs):Promise<Maybe<Issue>> {
     const issuesManager = new IssuesManager({ id, title: '', status: '', description: '', errorFunc })
     const errorText = 'Can not find Issue with Id === ' + id
     try {
