@@ -1,10 +1,10 @@
+# for local development
+version: '3.8'
 services:
-  web:
+  frontend:
     build:
-      context: app
-      target: development
+      context: 'app'
+      target: 'develop-stage'
     ports:
-      - 8080:8080
-    volumes:
-      - ./app:/project
-      - /project/node_modules
+    - '8080:8080'
+    command: /bin/sh -c "npm run serve"
