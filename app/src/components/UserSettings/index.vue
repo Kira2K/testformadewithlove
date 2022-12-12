@@ -44,7 +44,7 @@
             <manual></manual>
           </div>
           <div class="settings__item">
-            <a href="/static/Manual.pdf" target="_blank">{{ locale[lang].manual }}</a>
+            <span>{{ locale[lang].manual }}</span>
           </div>
         </div>
         <div class="settings__content-row" v-if="autorized">

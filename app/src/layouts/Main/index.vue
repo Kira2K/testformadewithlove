@@ -48,7 +48,7 @@
             :sound="$soundOn"
             autorized
             :theme="$theme"
-            :user-name="$userName"
+            :user-name="''"
             @on-lang-select="handleLangSelect"
             @on-theme-change="handleThemeChange"
             @on-exit="logout"
@@ -72,8 +72,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import localization from './localization.json'
-import { getUserRightsByRouteName } from '@/helpers/getUserRightsByRouteName'
-import { safeCopyObj } from '@/helpers/safeCopyObj.ts'
 import NavigationMenu from '@/components/NavigationMenu'
 import UserSettings from '@/components/UserSettings'
 import MenuFold from '@/components/Icons/MenuFold'
@@ -106,7 +104,6 @@ export default {
       this.toPage('main')
     },
     logout () {
-      window.location.href = '/api/logout'
     },
     ...mapActions('ui', [
       'setThemeStyle',
@@ -117,9 +114,6 @@ export default {
     },
     handleThemeChange (theme) {
       this.$store.dispatch('ui/setThemeStyle', theme)
-    },
-    openLogs () {
-      if (this.isUserHaveLogsRights) this.$router.push({ path: '/admin/log' })
     }
   },
   computed: {
@@ -129,19 +123,13 @@ export default {
     ]),
     ...mapGetters('status', ['status']),
     allowedRoutes () {
-      let allowedRoutes = []
-      this.$routes.map(el => {
-        const route = safeCopyObj(el)
-        const rights = getUserRightsByRouteName({ routeName: route.name, roles: this.$roles })
-        if (rights.read) allowedRoutes = this.$routes.filter(x => x?.meta?.mainMenu)
-      })
+      const allowedRoutes = this.$routes.filter(x => x?.meta?.mainMenu)
+
       allowedRoutes.map(route => {
         if (!route.children || route.children.length < 1) return route
 
-        route.children = route.children.filter(childRoute => {
-          const rights = getUserRightsByRouteName({ routeName: childRoute.name, roles: this.$roles }).read
-          if (rights.read) return childRoute?.meta?.mainMenu
-        })
+        route.children = route.children.filter(childRoute => childRoute?.meta?.mainMenu
+        )
         if (route.children.length === 0) delete route.children
         return route
       })

@@ -72,7 +72,6 @@ ul.drag-list, ul.drag-inner-list {
     transition: $ease-out;
     border-left:1px solid var(--polar-green-8);
     border-radius: 4px;
-    &__inner {}
     &__header {
       color: var(--text-title);
       display: flex;

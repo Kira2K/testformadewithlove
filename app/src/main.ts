@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import UserModule from './modules/UserModule'
 import UIModule from './modules/UIModule'
 import MainModule from './modules/MainModule'
 import IssuesModule from './modules/IssuesModule'
@@ -20,7 +19,6 @@ Vue.use(vueKanban)
 Vue.use(MainModule, { store, router })
 Vue.use(IssuesModule, { store, router })
 Vue.use(KanbanModule, { store, router })
-Vue.use(UserModule, { store })
 Vue.use(UIModule, { store, router })
 
 new Vue({

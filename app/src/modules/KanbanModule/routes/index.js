@@ -12,7 +12,6 @@ export default [
       menuItemsCards: false,
       selected: false,
       disabled: false,
-      roles: ['admin', 'kanban_read'],
       title: {
         ru: 'Канбан',
         en: 'kanban'

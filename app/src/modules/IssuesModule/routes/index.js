@@ -14,7 +14,6 @@ export default [
       menuItemsCards: false,
       selected: false,
       disabled: false,
-      roles: ['admin', 'issues_read'],
       title: {
         ru: 'Задачи',
         en: 'Issues'
@@ -33,7 +32,6 @@ export default [
           menuItemsCards: false,
           selected: false,
           disabled: false,
-          roles: ['admin', 'issues_read'],
           title: {
             ru: 'Редактирование',
             en: 'Issue editing'
