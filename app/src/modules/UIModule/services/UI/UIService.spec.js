@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import UIService from './UIService'
 describe('UI-service test case', () => {
   it('step 1: Validator can validate html-tag existence. Can be truthy', () => {

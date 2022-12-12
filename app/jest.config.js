@@ -1,10 +1,10 @@
 module.exports = {
-  moduleFileExtensions: ['js', 'json', 'vue'],
+  moduleFileExtensions: ['js', 'json', 'vue', 'ts'],
   verbose: true,
+  preset: '@vue/cli-plugin-unit-jest/presets/typescript-and-babel',
   transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.js$': 'babel-jest'
+    '^.+\\.vue$': '@vue/vue2-jest',
+    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
@@ -13,7 +13,8 @@ module.exports = {
   testMatch: [
     '**/src/modules/**/*.spec.(js|ts)',
     '**/src/helpers/**/*.spec.(js|ts)',
+    '**/src/helpers/*/*.spec.(js|ts)',
     '**/src/components/**/*.spec.(js|ts)'
   ],
-  testURL: 'http://localhost/'
+  testURL: 'http://localhost:3000/'
 }

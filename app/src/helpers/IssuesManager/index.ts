@@ -41,7 +41,7 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
     title,
     description,
     errorFunc
-  }) {
+  }:IssuesManagerModule.IssuesManagerConstructorInterface) {
     if (id) this.id = id
     this.status = status
     this.title = title
@@ -73,13 +73,14 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
     } catch (error:unknown) {
       this.errorFunc(this.errorText)
       console.log(error)
+      throw error
     }
   }
 
   /**
  * Delete existing issue, if issue stage is 'production'
 */
-  public static async deleteIssueById ({ id, status, errorFunc }:IssuesManagerModule.deleteIssueByIdArgs):Promise<Maybe<Issue>> {
+  public static async deleteIssueById ({ id, status, errorFunc }:IssuesManagerModule.deleteIssueByIdArgs):Promise<Maybe<Issue['id']>> {
     const issuesManager = new IssuesManager({ id, title: '', status, description: '', errorFunc })
     let errorText = 'Can not delete Issue with id === ' + id
     try {
@@ -90,10 +91,11 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
       const { data } = await axios.delete(issuesManager.path)
       if (!data || data.name === 'AxiosError') throw Error(errorText)
 
-      return data
+      return id
     } catch (error:unknown) {
       issuesManager.errorFunc(errorText)
       console.log(error)
+      throw error
     }
   }
 
@@ -111,6 +113,7 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
     } catch (error:unknown) {
       issuesManager.errorFunc(errorText)
       console.log(error)
+      throw error
     }
   }
 
@@ -118,7 +121,7 @@ export class IssuesManager implements IssuesManagerModule.IssuesManagerConstruct
  * get basic path for issues manilupating
 */
   private get path ():string {
-    const api = process.env.VUE_APP_BACKEND_ADDR + 'issues'
+    const api = (process.env.VUE_APP_BACKEND_ADDR ?? '') + 'issues'
     const path = api + (this.isEditMode ? '/' + this.id : '')
     return path
   }

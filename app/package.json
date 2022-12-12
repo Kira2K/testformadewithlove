@@ -7,12 +7,14 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "jest": "jest"
   },
   "dependencies": {
     "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.19.1",
     "node": "^18.12.1",
+    "@vue/vue2-jest": "^27.0.0",
     "axios": "^0.27.2",
     "axios-rate-limit": "^1.3.0",
     "babel-core": "7.0.0-bridge.0",
@@ -43,6 +45,7 @@
     "@vue/cli-plugin-unit-jest": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-standard": "^8.0.1",
+    "@vue/eslint-config-typescript": "^11.0.2",
     "add": "^2.0.6",
     "babel-loader": "^8.2.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -64,20 +67,15 @@
     "typescript": "^4.8.4",
     "vue-docgen-api": "^4.52.0",
     "vue-docgen-loader": "^2.0.0",
-    "vue-jest": "^3.0.7",
     "vue-loader": "^17.0.0",
     "vue-style-loader": "^4.1.3",
-    "vue-template-compiler": "^2.7.10",
-    "@vue/eslint-config-typescript": "^11.0.2"
+    "vue-template-compiler": "^2.7.10"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
   ],
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
-  },
   "engines": {
     "node": ">=16.0.0"
   },
