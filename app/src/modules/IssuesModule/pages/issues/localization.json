@@ -1,8 +1,8 @@
 {
   "ru": {
-    "kanban": "Канбан"
+    "createNew": "Создать новую задачу"
   },
   "en": {
-    "kanban": "Kanban"
+    "createNew": "Create new issue"
   }
 }

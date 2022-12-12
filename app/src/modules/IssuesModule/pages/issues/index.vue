@@ -2,7 +2,15 @@
   <main-layout>
     <template>
     <router-view v-if="isSubPage" />
-<in-development  v-else></in-development>
+    <div v-else>
+      <p>
+      <router-link :to="'/issues/create'">
+      <el-button>{{l10n.createNew}}</el-button>
+      </router-link>
+      </p>
+    <in-development></in-development>
+    </div>
+
   </template>
   </main-layout>
 </template>
@@ -10,7 +18,7 @@
 <script>
 import MainLayout from '@/layouts/Main'
 import InDevelopment from '@/components/InDevelopment'
-import localization from '@/modules/MainModule/pages/main/localization.json'
+import localization from './localization.json'
 export default {
   name: 'IssuesPage',
   components: { InDevelopment, MainLayout },
@@ -30,6 +38,7 @@ export default {
 
   },
   mounted () {
+    console.log(this.l10n)
   }
 }
 </script>
