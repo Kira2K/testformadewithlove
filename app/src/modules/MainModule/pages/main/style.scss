@@ -3,6 +3,9 @@
     max-height: calc(100vh - 145px);
     overflow-y: auto;
   }
+  &__ul {
+    font-size: 16px;
+  }
   &__title {
     font-family: Roboto;
     font-style: normal;

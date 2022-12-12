@@ -38,7 +38,6 @@ export default {
 
   },
   mounted () {
-    console.log(this.l10n)
   }
 }
 </script>
