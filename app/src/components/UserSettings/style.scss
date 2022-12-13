@@ -53,19 +53,32 @@
   &__item {
     margin-left: 10px;
   }
-  .mx-popover__content {
-    padding: 12px 16px;
-  }
 
   &__trigger {
     width: 32px;
     height: 32px;
   }
+  &__themes-container {
+    //  height: 50%;
+     max-width: 50%;
+     margin-left: 25%;
+     @media (max-width: 1920px) {
+      max-width: 80%;
+      margin-left: 10%;
+    }
+     @media (max-width: 1280px) {
+      max-width: 100%;
+      margin-left: 0%;
+    }
 
+  }
   &__theme {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
     &-col {
       width: 172px;
       padding-left: 16px;
@@ -82,13 +95,6 @@
 
   &__icon {
     margin-right: 8px;
-
-    &-exit {
-      .mx-icon {
-        color: var(--indication-red)
-      }
-    }
-
   }
 
   &__item {

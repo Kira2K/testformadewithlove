@@ -58,6 +58,7 @@
     <el-dialog
       :title="locale[lang].customization"
       :visible.sync="showThemesSelect"
+      class="settings__themes-container"
       width="60%"
     >
       <div class="settings__theme">

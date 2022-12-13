@@ -11,19 +11,6 @@
   box-sizing: border-box;
 }
 
-.mx-confirm__container {
-  border: 2px solid #142333;
-  border-radius: '8px';
-}
-.mx-window {
-  z-index: 1000 !important;
-}
-.mx-overlay {
-  z-index: 999 !important;
-}
-.mx-window__body {
-  height: 100%;
-}
 .is-disabled .el-textarea__inner {
   background-color: var(--surface-disable) !important;
 }
@@ -136,14 +123,6 @@
 .el-icon-delete {
   color: var(--indication-red)
 }
-.filter-icon, .arrow-icon {
-  max-height: 16px;
-  max-width: 16px;
-  @media (min-width: 1920px) {
-    max-height: 16px;
-    max-width: 16px;
-  }
-}
 .menu-icon {
   height: 18px;
   width: 18px;
@@ -164,10 +143,6 @@
   line-height: 22px;
   padding: 5px 8px;
 
-  &.is-plain {
-    background: #25384E!important;
-    border: 1px solid #385775;
-  }
 
   &:hover, active, focus, focus-visible{
     background: var(--border-2);
@@ -200,26 +175,7 @@
     }
   }
 }
-//temporary style for mx-button
-.mx-btn--primary.mx-btn--solid {
-  &:hover, active, focus, focus-visible {
-    border: 1px solid var(--neon-main)!important;
-  }
-}
 
-//checkbox
-.el-checkbox {
-  &__inner {
-    background-color: var(--surface-popover);
-    border: 1px solid var(--text-main);
-  }
-
-  &.is-checked {
-    .el-checkbox__inner {
-      background-color: var(--neon-main);
-    }
-  }
-}
 //window
 .el-dialog {
   background: var(--surface-main);
@@ -486,30 +442,6 @@
 .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner a,
 .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover, .el-breadcrumb__item:last-child {
   color: var(--text-main);
-}
-
-//divider
-.el-divider {
-  background-color: var(--surface-in-press)!important;
-  border-top: solid 1px var(--surface-in-press);
-  border-bottom: solid 1px var(--border-1);
-  &--horizontal {
-    margin: 0px;
-  }
-}
-//el-message-box
-.el-message-box {
-  background-color: var(--surface-popover);
-  border: none;
-  &__title {
-    color: var(--text-title);
-  }
-  &__content {
-    color: var(--text-main);
-  }
-  &__close {
-    color: var(--text-main)!important;
-  }
 }
 //header
 .header {
